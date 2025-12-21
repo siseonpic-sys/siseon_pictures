@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siseon Pictures - Minimalist Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #ffffff;
+            color: #333;
+        }
+
+        h1, h2, h3, .serif-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .image-hover-overlay {
+            background: rgba(255, 255, 255, 0.9);
+            transition: opacity 0.3s ease;
+        }
+
+        /* Masonry Grid Fix */
+        .masonry-grid {
+            column-count: 1;
+            column-gap: 1.5rem;
+        }
+        @media (min-width: 640px) {
+            .masonry-grid { column-count: 2; }
+        }
+        @media (min-width: 1024px) {
+            .masonry-grid { column-count: 3; }
+        }
+        
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Mobile Header (Visible only on small screens) -->
+    <header class="md:hidden fixed top-0 left-0 w-full bg-white z-50 px-6 py-4 flex justify-between items-center border-b border-gray-100">
+        <a href="#" class="text-xl font-semibold serif-font tracking-wide">Siseon Pictures</a>
+        <button id="mobile-menu-btn" class="text-gray-800 focus:outline-none">
+            <i class="fas fa-bars text-xl"></i>
+        </button>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-40 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col justify-center items-center space-y-8">
+        <button id="close-menu-btn" class="absolute top-6 right-6 text-2xl focus:outline-none">
+            <i class="fas fa-times"></i>
+        </button>
+        <a href="#home" class="text-2xl font-light hover:text-gray-500 transition mobile-link">HOME</a>
+        <a href="#portfolio" class="text-2xl font-light hover:text-gray-500 transition mobile-link">PORTFOLIO</a>
+        <a href="#about" class="text-2xl font-light hover:text-gray-500 transition mobile-link">ABOUT</a>
+        <a href="#contact" class="text-2xl font-light hover:text-gray-500 transition mobile-link">CONTACT</a>
+    </div>
+
+    <div class="flex flex-col md:flex-row min-h-screen">
+        
+        <!-- Sidebar Navigation (Desktop) -->
+        <aside class="hidden md:flex flex-col w-64 h-screen fixed left-0 top-0 bg-white border-r border-gray-100 px-8 py-12 justify-between z-10">
+            <div>
+                <h1 class="text-2xl font-bold mb-2 serif-font tracking-wide"><a href="#">Siseon Pictures</a></h1>
+                <p class="text-xs text-gray-400 mb-12 uppercase tracking-widest">Photography & Design</p>
+                
+                <nav class="flex flex-col space-y-4">
+                    <a href="#home" class="text-sm font-medium hover:text-gray-500 transition uppercase tracking-wider text-gray-900">Home</a>
+                    <a href="#portfolio" class="text-sm font-medium hover:text-gray-500 transition uppercase tracking-wider text-gray-400 hover:text-gray-900">Portfolio</a>
+                    <a href="#about" class="text-sm font-medium hover:text-gray-500 transition uppercase tracking-wider text-gray-400 hover:text-gray-900">About</a>
+                    <a href="#contact" class="text-sm font-medium hover:text-gray-500 transition uppercase tracking-wider text-gray-400 hover:text-gray-900">Contact</a>
+                </nav>
+            </div>
+
+            <div class="text-xs text-gray-400">
+                <div class="flex space-x-4 mb-4">
+                    <a href="#" class="hover:text-black transition"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="hover:text-black transition"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="hover:text-black transition"><i class="fab fa-behance"></i></a>
+                </div>
+                <p>&copy; 2024 Siseon Pictures.<br>All rights reserved.</p>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="w-full md:pl-64 pt-20 md:pt-0">
+            
+            <!-- Portfolio Section -->
+            <section id="portfolio" class="px-4 md:px-12 py-12 md:py-20 max-w-7xl mx-auto">
+                <div class="mb-10 fade-in">
+                    <p class="serif-font italic text-gray-500 mb-2">Selected Works</p>
+                    <h2 class="text-3xl md:text-4xl font-light mb-6">Visual Narrative</h2>
+                    <div class="w-12 h-0.5 bg-black"></div>
+                </div>
+
+                <!-- Masonry Grid -->
+                <div class="masonry-grid" id="gallery-container">
+                    <!-- Javascript will populate images here -->
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section id="about" class="bg-gray-50 px-4 md:px-12 py-20">
+                <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-12">
+                    <div class="w-full md:w-1/2">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Profile" class="w-full h-auto grayscale shadow-lg">
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <h2 class="text-3xl font-light mb-6 serif-font">The Artist</h2>
+                        <p class="text-gray-600 mb-6 leading-relaxed font-light">
+                            안녕하세요. 서울을 기반으로 활동하는 비주얼 아티스트 김민수입니다. 
+                            단순함 속에 숨겨진 본질을 탐구하며, 빛과 그림자를 통해 이야기를 전달합니다.
+                            공간, 인물, 그리고 사물의 고유한 아름다움을 포착하는 것을 목표로 합니다.
+                        </p>
+                        <p class="text-gray-600 mb-8 leading-relaxed font-light">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        </p>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Signature_sample.svg" alt="Signature" class="h-12 opacity-50">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="px-4 md:px-12 py-20 max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl font-light mb-4 serif-font">Get in Touch</h2>
+                <p class="text-gray-500 mb-10 font-light">프로젝트 의뢰 및 협업 문의는 언제든 환영합니다.</p>
+                
+                <form class="space-y-6 text-left" onsubmit="event.preventDefault(); alert('메시지가 전송되었습니다.');">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-gray-500 mb-2">Name</label>
+                            <input type="text" class="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-black transition bg-transparent" placeholder="홍길동">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-gray-500 mb-2">Email</label>
+                            <input type="email" class="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-black transition bg-transparent" placeholder="email@example.com">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-gray-500 mb-2">Message</label>
+                        <textarea rows="4" class="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-black transition bg-transparent resize-none" placeholder="문의 내용을 입력해주세요."></textarea>
+                    </div>
+                    <div class="text-center mt-10">
+                        <button type="submit" class="px-10 py-3 bg-black text-white hover:bg-gray-800 transition uppercase text-xs tracking-widest">Send Message</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Footer (Mobile only mostly) -->
+            <footer class="md:hidden bg-white border-t border-gray-100 py-8 text-center">
+                <div class="text-xs text-gray-400">
+                    <p>&copy; 2024 Siseon Pictures. All rights reserved.</p>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="fixed inset-0 bg-white z-50 hidden flex justify-center items-center opacity-0 transition-opacity duration-300">
+        <button id="close-lightbox" class="absolute top-6 right-6 text-4xl font-light text-black focus:outline-none hover:rotate-90 transition-transform duration-300">&times;</button>
+        <div class="max-w-6xl max-h-screen p-4 md:p-10 flex flex-col items-center">
+            <img id="lightbox-img" src="" class="max-h-[80vh] w-auto shadow-2xl object-contain mb-4">
+            <div class="text-center">
+                <h3 id="lightbox-title" class="text-xl serif-font mb-1">Title</h3>
+                <p id="lightbox-desc" class="text-sm text-gray-500 uppercase tracking-widest">Category</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Portfolio Data
+        const portfolioItems = [
+            { id: 1, src: "https://images.unsplash.com/photo-1493863641943-9b68992a8d07?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", title: "Urban Geometry", category: "Architecture" },
+            { id: 2, src: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", title: "Silent Gaze", category: "Portrait" },
+            { id: 3, src: "https://images.unsplash.com/photo-1501854140884-074cf2b2c3af?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", title: "Misty Mountains", category: "Nature" },
+            { id: 4, src: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", title: "Forest Light", category: "Nature" },
+            { id: 5, src: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", title: "Glass Facade", category: "Architecture" },
+            { id: 6, src: "https://images.unsplash.com/photo-1515378960530-7c0da6231fb1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", title: "Minimal Tech", category: "Product" },
+            { id: 7, src: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", title: "Valley Flow", category: "Nature" },
+            { id: 8, src: "https://images.unsplash.com/photo-1481349518771-20055b2a7b24?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", title: "Abstract Yellow", category: "Abstract" },
+            { id: 9, src: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", title: "Morning Reading", category: "Lifestyle" },
+            { id: 10, src: "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", title: "The Scholar", category: "Portrait" },
+            { id: 11, src: "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", title: "Golden Hour", category: "Nature" },
+            { id: 12, src: "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", title: "Office Space", category: "Interior" }
+        ];
+
+        // Populate Gallery
+        const galleryContainer = document.getElementById('gallery-container');
+        
+        portfolioItems.forEach((item, index) => {
+            const div = document.createElement('div');
+            div.className = 'masonry-item relative group cursor-pointer fade-in';
+            div.style.animationDelay = `${index * 0.1}s`;
+            
+            div.innerHTML = `
+                <div class="relative overflow-hidden">
+                    <img src="${item.src}" alt="${item.title}" class="w-full h-auto transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 image-hover-overlay opacity-0 group-hover:opacity-100 flex flex-col justify-center items-center text-center p-4">
+                        <h3 class="text-xl font-medium serif-font mb-1 transform translate-y-4 group-hover:translate-y-0 transition duration-500">${item.title}</h3>
+                        <p class="text-xs uppercase tracking-widest text-gray-500 transform translate-y-4 group-hover:translate-y-0 transition duration-500 delay-75">${item.category}</p>
+                    </div>
+                </div>
+            `;
+            
+            // Add click event for lightbox
+            div.addEventListener('click', () => openLightbox(item));
+            galleryContainer.appendChild(div);
+        });
+
+        // Mobile Menu Logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            const isClosed = mobileMenu.classList.contains('translate-x-full');
+            if (isClosed) {
+                mobileMenu.classList.remove('translate-x-full');
+            } else {
+                mobileMenu.classList.add('translate-x-full');
+            }
+        }
+
+        mobileMenuBtn.addEventListener('click', toggleMenu);
+        closeMenuBtn.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+        // Lightbox Logic
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxTitle = document.getElementById('lightbox-title');
+        const lightboxDesc = document.getElementById('lightbox-desc');
+        const closeLightboxBtn = document.getElementById('close-lightbox');
+
+        function openLightbox(item) {
+            lightboxImg.src = item.src;
+            lightboxTitle.innerText = item.title;
+            lightboxDesc.innerText = item.category;
+            
+            lightbox.classList.remove('hidden');
+            // Small delay to allow display:block to apply before opacity transition
+            setTimeout(() => {
+                lightbox.classList.remove('opacity-0');
+            }, 10);
+            document.body.style.overflow = 'hidden'; // Prevent scrolling background
+        }
+
+        function closeLightbox() {
+            lightbox.classList.add('opacity-0');
+            setTimeout(() => {
+                lightbox.classList.add('hidden');
+            }, 300);
+            document.body.style.overflow = '';
+        }
+
+        closeLightboxBtn.addEventListener('click', closeLightbox);
+        
+        // Close on background click
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        // Escape key to close
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeLightbox();
+                if (!mobileMenu.classList.contains('translate-x-full')) {
+                    toggleMenu();
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>
