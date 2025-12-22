@@ -63,7 +63,6 @@
 </head>
 <body class="antialiased">
 
-    <!-- Mobile Header (Visible only on small screens) -->
     <header class="md:hidden fixed top-0 left-0 w-full bg-white z-50 px-6 py-4 flex justify-between items-center border-b border-gray-100">
         <a href="#" class="text-xl font-semibold serif-font tracking-wide">Siseon Pictures</a>
         <button id="mobile-menu-btn" class="text-gray-800 focus:outline-none">
@@ -71,7 +70,6 @@
         </button>
     </header>
 
-    <!-- Mobile Menu Overlay -->
     <div id="mobile-menu" class="fixed inset-0 bg-white z-40 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col justify-center items-center space-y-8">
         <button id="close-menu-btn" class="absolute top-6 right-6 text-2xl focus:outline-none">
             <i class="fas fa-times"></i>
@@ -84,7 +82,6 @@
 
     <div class="flex flex-col md:flex-row min-h-screen">
         
-        <!-- Sidebar Navigation (Desktop) -->
         <aside class="hidden md:flex flex-col w-64 h-screen fixed left-0 top-0 bg-white border-r border-gray-100 px-8 py-12 justify-between z-10">
             <div>
                 <h1 class="text-2xl font-bold mb-2 serif-font tracking-wide"><a href="#">Siseon Pictures</a></h1>
@@ -108,10 +105,8 @@
             </div>
         </aside>
 
-        <!-- Main Content Area -->
         <main class="w-full md:pl-64 pt-20 md:pt-0">
             
-            <!-- Portfolio Section -->
             <section id="portfolio" class="px-4 md:px-12 py-12 md:py-20 max-w-7xl mx-auto">
                 <div class="mb-10 fade-in">
                     <p class="serif-font italic text-gray-500 mb-2">Selected Works</p>
@@ -119,52 +114,70 @@
                     <div class="w-12 h-0.5 bg-black"></div>
                 </div>
 
-                <!-- Masonry Grid -->
                 <div class="masonry-grid" id="gallery-container">
-                    <!-- Javascript will populate images here -->
-                </div>
+                    </div>
             </section>
 
-            <!-- About Section -->
             <section id="about" class="bg-gray-50 px-4 md:px-12 py-20">
-                <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-12">
-                    <div class="w-full md:w-1/2">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Profile" class="w-full h-auto grayscale shadow-lg">
+                <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-start gap-12">
+                    <div class="w-full md:w-1/2 sticky top-20">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Profile" class="w-full h-auto grayscale shadow-lg mb-6">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Signature_sample.svg" alt="Signature" class="h-12 opacity-50 ml-auto">
                     </div>
+                    
                     <div class="w-full md:w-1/2">
-                        <h2 class="text-3xl font-light mb-6 serif-font">The Company</h2>
-                        <p class="text-gray-600 mb-6 leading-relaxed font-light">
-                     
-                        </p>
-                        <p class="text-gray-600 mb-8 leading-relaxed font-light">
-# Siseon Pictures
+                        <h2 class="text-3xl font-light mb-8 serif-font">The Company</h2>
+                        
+                        <div class="mb-8">
+                            <h3 class="text-xl serif-font mb-3 text-gray-800">Siseon Pictures</h3>
+                            <p class="text-gray-600 leading-relaxed font-light">
+                                Welcome to <strong>Siseon Pictures</strong>.<br>
+                                This project serves as a creative archive and portfolio, capturing unique perspectives and moments.
+                            </p>
+                        </div>
 
-Welcome to **Siseon Pictures**. 
-This project serves as a creative archive and portfolio, capturing unique perspectives and moments.
+                        <div class="mb-8">
+                            <h3 class="text-lg serif-font mb-3 text-gray-800"><i class="fas fa-map-marker-alt mr-2 text-sm"></i>About Us</h3>
+                            <p class="text-gray-600 mb-2 font-light">
+                                Siseon Pictures is actively operating based in two vibrant cities:
+                            </p>
+                            <ul class="list-none space-y-1 text-gray-600 font-light">
+                                <li>🇦🇺 Gold Coast, Australia</li>
+                                <li>🇰🇷 Seoul, South Korea</li>
+                            </ul>
+                            <p class="text-gray-500 mt-2 text-sm italic">
+                                We aim to bridge different cultures and sceneries through our visual storytelling.
+                            </p>
+                        </div>
 
-## 📍 About Us
-**Siseon Pictures** is actively operating based in two vibrant cities:
-* **Gold Coast, Australia** 🇦🇺
-* **Seoul, South Korea** 🇰🇷
+                        <div class="mb-8 border-t border-gray-200 pt-6">
+                            <h3 class="text-lg serif-font mb-3 text-gray-800"><i class="fas fa-camera mr-2 text-sm"></i>Usage & Copyright</h3>
+                            <div class="text-sm text-gray-600 space-y-3 font-light">
+                                <p>
+                                    <strong class="font-medium text-gray-800">Copyright:</strong><br>
+                                    All photos and visual materials contained in this repository are the intellectual property of Siseon Pictures unless stated otherwise.
+                                </p>
+                                <p>
+                                    <strong class="font-medium text-gray-800">License:</strong><br>
+                                    All rights reserved.
+                                </p>
+                                <p class="text-gray-500 bg-gray-100 p-3 rounded-sm">
+                                    <strong class="font-medium text-red-400">Caution:</strong> Unauthorized commercial use, reproduction, or distribution without prior permission is strictly prohibited.
+                                </p>
+                            </div>
+                        </div>
 
-We aim to bridge different cultures and sceneries through our visual storytelling.
-
-## 📸 Usage & Copyright
-Please note the following regarding the images and resources in this repository:
-* **Copyright:** All photos and visual materials contained in this repository are the intellectual property of **Siseon Pictures** unless stated otherwise.
-* **License:** [Insert License Type, e.g., CC BY-NC-ND 4.0 or "All rights reserved"]. 
-* **Caution:** Unauthorized commercial use, reproduction, or distribution without prior permission is strictly prohibited.
-
-## 📬 Contact
-If you have any inquiries or collaboration requests, please feel free to reach out.
-* **Location:** Gold Coast / Seoul
-* **Email:** [Your Email Address]                        </p>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Signature_sample.svg" alt="Signature" class="h-12 opacity-50">
+                        <div>
+                             <h3 class="text-lg serif-font mb-2 text-gray-800">Contact Info</h3>
+                             <p class="text-gray-600 font-light text-sm">
+                                Location: Gold Coast / Seoul<br>
+                                Email: [Your Email Address]
+                             </p>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Contact Section -->
             <section id="contact" class="px-4 md:px-12 py-20 max-w-3xl mx-auto text-center">
                 <h2 class="text-3xl font-light mb-4 serif-font">Get in Touch</h2>
                 <p class="text-gray-500 mb-10 font-light">프로젝트 의뢰 및 협업 문의는 언제든 환영합니다.</p>
@@ -173,7 +186,7 @@ If you have any inquiries or collaboration requests, please feel free to reach o
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <label class="block text-xs uppercase tracking-wider text-gray-500 mb-2">Name</label>
-                            <input type="text" class="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-black transition bg-transparent" placeholder="홍길동">
+                            <input type="text" class="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-black transition bg-transparent" placeholder="Name">
                         </div>
                         <div>
                             <label class="block text-xs uppercase tracking-wider text-gray-500 mb-2">Email</label>
@@ -182,7 +195,7 @@ If you have any inquiries or collaboration requests, please feel free to reach o
                     </div>
                     <div>
                         <label class="block text-xs uppercase tracking-wider text-gray-500 mb-2">Message</label>
-                        <textarea rows="4" class="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-black transition bg-transparent resize-none" placeholder="문의 내용을 입력해주세요."></textarea>
+                        <textarea rows="4" class="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-black transition bg-transparent resize-none" placeholder="How can we help you?"></textarea>
                     </div>
                     <div class="text-center mt-10">
                         <button type="submit" class="px-10 py-3 bg-black text-white hover:bg-gray-800 transition uppercase text-xs tracking-widest">Send Message</button>
@@ -190,7 +203,6 @@ If you have any inquiries or collaboration requests, please feel free to reach o
                 </form>
             </section>
 
-            <!-- Footer (Mobile only mostly) -->
             <footer class="md:hidden bg-white border-t border-gray-100 py-8 text-center">
                 <div class="text-xs text-gray-400">
                     <p>&copy; 2024 Siseon Pictures. All rights reserved.</p>
@@ -199,7 +211,6 @@ If you have any inquiries or collaboration requests, please feel free to reach o
         </main>
     </div>
 
-    <!-- Lightbox Modal -->
     <div id="lightbox" class="fixed inset-0 bg-white z-50 hidden flex justify-center items-center opacity-0 transition-opacity duration-300">
         <button id="close-lightbox" class="absolute top-6 right-6 text-4xl font-light text-black focus:outline-none hover:rotate-90 transition-transform duration-300">&times;</button>
         <div class="max-w-6xl max-h-screen p-4 md:p-10 flex flex-col items-center">
